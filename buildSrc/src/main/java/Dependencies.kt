@@ -33,6 +33,8 @@ object AppPlugins {
 
 object AppModule {
     const val app = ":app"
+    const val main = ":main-ui"
+    const val detail = ":detail-ui"
 }
 
 object Deps {
