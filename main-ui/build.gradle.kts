@@ -28,8 +28,12 @@ android {
             )
         }
     }
-
+    dataBinding.isEnabled = true
 }
 
 dependencies {
+    implementation(Deps.kotlin)
+    implementation(Deps.ktx)
+    implementation(Deps.appcompat)
+    implementation(Deps.material)
 }

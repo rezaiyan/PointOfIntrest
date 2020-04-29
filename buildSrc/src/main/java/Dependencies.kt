@@ -15,6 +15,7 @@ object Versions {
 
     const val appcompat = "1.1.0"
     const val ktx = "1.2.0"
+    const val material = "1.1.0"
 }
 
 
@@ -41,6 +42,7 @@ object Deps {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val material = "com.google.android.material:material:${Versions.material}"
 }
 
 object TestDeps
