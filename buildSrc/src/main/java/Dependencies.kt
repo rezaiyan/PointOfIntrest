@@ -19,6 +19,13 @@ object Versions {
     const val dagger = "2.26"
     const val daggerAndroid = "2.22.1"
     const val navigation = "1.0.0"
+    const val coroutines = "1.3.0"
+    const val gson = "2.8.5"
+    const val okHttp = "3.4.1"
+    const val okHttpInterceptor = "3.8.1"
+    const val retrofit = "2.8.1"
+    const val constraintlayout = "1.1.3"
+    const val picasso = "2.71828"
 }
 
 
@@ -40,6 +47,8 @@ object AppModule {
     const val main = ":main-ui"
     const val detail = ":detail-ui"
     const val uiSdk = ":ui-sdk"
+    const val coreSdk = ":core-sdk"
+    const val data = ":data"
 }
 
 object Deps {
@@ -47,6 +56,11 @@ object Deps {
     const val coreKtx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     const val daggerAndroidProcessor =
         "com.google.dagger:dagger-android-processor:${Versions.dagger}"
@@ -55,6 +69,14 @@ object Deps {
     const val navigationUI = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val navigationFragment =
         "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
+
+    val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    const val okhttpInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpInterceptor}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 }
 
 object TestDeps

@@ -6,6 +6,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
+import ir.alirezaiyan.data.Mapper
+import ir.alirezaiyan.data.remote.response.VenueResponse
+import ir.alirezaiyan.main.model.VenueUiModel
+import ir.alirezaiyan.main.model.VenuesUiModelMapper
 import ir.alirezaiyan.sdk.ui.core.ViewModelFactory
 import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 
@@ -17,6 +21,11 @@ import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 interface MainModule {
     @ContributesAndroidInjector
     fun mainFragment(): MainFragment
+
+    @Binds
+    abstract fun bindVenueUiModelMapper(
+        mapper: VenuesUiModelMapper
+    ): Mapper<VenueResponse, VenueUiModel>
 
     @Binds
     fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

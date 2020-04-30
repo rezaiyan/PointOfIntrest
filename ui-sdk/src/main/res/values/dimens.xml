@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="standardMargin">8dp</dimen>
+    <dimen name="headerTextSize">15sp</dimen>
+    <dimen name="subtitleSize">12sp</dimen>
+    <dimen name="spaceDecorator">2dp</dimen>
+    <dimen name="iconPadding">4dp</dimen>
+</resources>

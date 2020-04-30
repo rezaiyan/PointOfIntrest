@@ -32,8 +32,10 @@ android {
 }
 
 dependencies {
-    implementation(Deps.kotlin)
+    implementation(project(AppModule.data))
     implementation(project(AppModule.uiSdk))
+    implementation(Deps.picasso)
+    api(project(AppModule.data))
     kapt(Deps.daggerAndroidProcessor)
     kapt(Deps.daggerCompiler)
 }

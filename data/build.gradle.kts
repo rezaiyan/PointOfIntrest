@@ -28,17 +28,18 @@ android {
             )
         }
     }
-    dataBinding.isEnabled = true
+
 }
 
 dependencies {
     api(Deps.kotlin)
-    api(Deps.appcompat)
-    api(Deps.material)
-    api(Deps.constraintLayout)
-    api(Deps.coreKtx)
-    api(Deps.daggerAndroid)
     api(Deps.dagger)
-    api(Deps.navigationUI)
-    api(Deps.navigationFragment)
+    kapt(Deps.daggerCompiler)
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitGson)
+    implementation(Deps.okhttp)
+    implementation(Deps.okhttpInterceptor)
+    implementation(Deps.gson)
+    api(project(AppModule.coreSdk))
+
 }

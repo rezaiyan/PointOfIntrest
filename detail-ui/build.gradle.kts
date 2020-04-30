@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    implementation(Deps.kotlin)
+    implementation(project(AppModule.coreSdk))
     implementation(project(AppModule.uiSdk))
     kapt(Deps.daggerAndroidProcessor)
     kapt(Deps.daggerCompiler)

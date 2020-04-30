@@ -28,17 +28,10 @@ android {
             )
         }
     }
-    dataBinding.isEnabled = true
 }
 
 dependencies {
     api(Deps.kotlin)
-    api(Deps.appcompat)
-    api(Deps.material)
-    api(Deps.constraintLayout)
-    api(Deps.coreKtx)
-    api(Deps.daggerAndroid)
-    api(Deps.dagger)
-    api(Deps.navigationUI)
-    api(Deps.navigationFragment)
+    api(Deps.coroutines)
+    api(Deps.coroutinesAndroid)
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/standardMargin"
+    app:cardPreventCornerOverlap="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/itemIcon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_margin="@dimen/standardMargin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standardMargin"
+            android:layout_marginEnd="@dimen/standardMargin"
+            android:drawablePadding="@dimen/iconPadding"
+            android:gravity="start"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/headerTextSize"
+            app:layout_constraintBottom_toBottomOf="@+id/itemIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            app:layout_constraintTop_toTopOf="@+id/itemIcon"
+            tools:text="@tools:sample/full_names" />
+
+
+        <TextView
+            android:id="@+id/itemCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/standardMargin"
+            android:drawableStart="@drawable/ic_assistant"
+            android:drawablePadding="@dimen/iconPadding"
+            android:gravity="left"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/subtitleSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/itemTitle"
+            app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/itemAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standardMargin"
+            android:layout_marginStart="@dimen/standardMargin"
+            android:layout_marginBottom="@dimen/standardMargin"
+            android:alpha="0.8"
+            android:drawableStart="@drawable/ic_location"
+            android:drawablePadding="@dimen/iconPadding"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/subtitleSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemCategory"
+            tools:text="@tools:sample/lorem/random" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

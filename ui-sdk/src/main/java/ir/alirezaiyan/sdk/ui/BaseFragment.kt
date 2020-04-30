@@ -1,6 +1,7 @@
 package ir.alirezaiyan.sdk.ui
 
 import android.content.Context
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.navigation.fragment.findNavController
 import dagger.android.support.AndroidSupportInjection
@@ -16,6 +17,22 @@ open class BaseFragment : DaggerFragment() {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
+
+    protected fun updateProgress(loading: Boolean) {
+        if (loading)
+            showProgress()
+        else
+            hideProgress()
+    }
+
+    protected fun showProgress() = progressStatus(View.VISIBLE)
+
+    protected fun hideProgress() = progressStatus(View.GONE)
+
+    private fun progressStatus(viewStatus: Int) {
+        (activity as BaseActivity).progressBar().visibility = viewStatus
+    }
+
 }
 
 fun BaseFragment.navigate(@IdRes nodeId: Int) {
