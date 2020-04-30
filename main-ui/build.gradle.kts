@@ -33,7 +33,7 @@ android {
 
 dependencies {
     implementation(Deps.kotlin)
-    implementation(Deps.ktx)
-    implementation(Deps.appcompat)
-    implementation(Deps.material)
+    implementation(project(AppModule.uiSdk))
+    kapt(Deps.daggerAndroidProcessor)
+    kapt(Deps.daggerCompiler)
 }

@@ -1,8 +1,8 @@
 plugins {
-    id(AppPlugins.androidApp)
+    id(AppPlugins.androidLib)
     id(AppPlugins.kotlin)
-    id(AppPlugins.kotlinExt)
     id(AppPlugins.kotlinKapt)
+    id(AppPlugins.kotlinExt)
 }
 
 android {
@@ -13,20 +13,18 @@ android {
     buildToolsVersion(App.buildTools)
 
     defaultConfig {
-        applicationId = App.id
         minSdkVersion(App.minSdk)
         targetSdkVersion(App.targetSdk)
         versionName = App.versionName
         versionCode = App.versionCode
-        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -35,9 +33,11 @@ android {
 
 dependencies {
     implementation(Deps.kotlin)
-    implementation(project(AppModule.uiSdk))
-    implementation(project(AppModule.main))
-    implementation(project(AppModule.detail))
-    kapt(Deps.daggerAndroidProcessor)
-    kapt(Deps.daggerCompiler)
+    api(Deps.appcompat)
+    api(Deps.material)
+    api(Deps.coreKtx)
+    api(Deps.daggerAndroid)
+    api(Deps.dagger)
+    api(Deps.navigationUI)
+    api(Deps.navigationFragment)
 }
