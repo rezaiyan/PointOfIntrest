@@ -2,7 +2,7 @@ package ir.alirezaiyan.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ir.alirezaiyan.main.model.VenueUiModel
+import ir.alirezaiyan.data.model.VenueUiModel
 import ir.alirezaiyan.sdk.core.utils.Failure
 import javax.inject.Inject
 
@@ -18,7 +18,7 @@ class MainViewModel
     fun venueLiveData() = venueLiveData
     fun stateLiveData() = stateLiveData
 
-    fun getVenues(offset: String) {
+    fun getVenues(offset: String = "0") {
         stateLiveData.value = true
         userCase(offset) { it.either(::onFailure, ::onSuccess) }
     }

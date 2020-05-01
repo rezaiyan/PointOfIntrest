@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import ir.alirezaiyan.main.model.VenueUiModel
+import ir.alirezaiyan.data.model.VenueUiModel
 
 /**
  * @author Ali (alirezaiyann@gmail.com)

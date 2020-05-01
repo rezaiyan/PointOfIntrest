@@ -7,9 +7,9 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 import ir.alirezaiyan.data.Mapper
+import ir.alirezaiyan.data.model.VenueUiModel
+import ir.alirezaiyan.data.model.VenuesUiModelMapper
 import ir.alirezaiyan.data.remote.response.VenueResponse
-import ir.alirezaiyan.main.model.VenueUiModel
-import ir.alirezaiyan.main.model.VenuesUiModelMapper
 import ir.alirezaiyan.sdk.ui.core.ViewModelFactory
 import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 

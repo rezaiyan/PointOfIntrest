@@ -3,7 +3,8 @@ package ir.alirezaiyan.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ir.alirezaiyan.main.model.VenueUiModel
+import ir.alirezaiyan.data.model.VenueUiModel
+import ir.alirezaiyan.main.utils.ItemClick
 
 /**
  * @author Ali (alirezaiyann@gmail.com)

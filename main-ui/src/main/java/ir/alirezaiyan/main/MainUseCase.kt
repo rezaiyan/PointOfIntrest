@@ -2,8 +2,8 @@ package ir.alirezaiyan.main
 
 import ir.alirezaiyan.data.Mapper
 import ir.alirezaiyan.data.Repository
+import ir.alirezaiyan.data.model.VenueUiModel
 import ir.alirezaiyan.data.remote.response.VenueResponse
-import ir.alirezaiyan.main.model.VenueUiModel
 import ir.alirezaiyan.sdk.core.domain.UseCase
 import ir.alirezaiyan.sdk.core.utils.map
 import javax.inject.Inject

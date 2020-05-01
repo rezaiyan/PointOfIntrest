@@ -1,4 +1,4 @@
-package ir.alirezaiyan.main.model
+package ir.alirezaiyan.data.model
 
 import ir.alirezaiyan.data.Mapper
 import ir.alirezaiyan.data.remote.response.PhotoResponse
