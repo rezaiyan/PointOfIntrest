@@ -1,5 +1,6 @@
 package ir.alirezaiyan.poi.core
 
+import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import ir.alirezaiyan.poi.R
 import ir.alirezaiyan.sdk.ui.BaseFragment
@@ -15,8 +16,11 @@ import javax.inject.Singleton
 @Singleton
 class PoiNavigationController @Inject constructor() : NavigationController {
 
-    override fun navigateToDetail(fragment: BaseFragment) {
-        fragment.navigate(R.id.detail)
+    override fun navigateToDetail(
+        fragment: BaseFragment,
+        bundle: Bundle
+    ) {
+        fragment.navigate(R.id.detail, bundle)
     }
 
     override fun showError(activity: androidx.fragment.app.FragmentActivity, error: String?) {
