@@ -10,7 +10,8 @@ import ir.alirezaiyan.main.utils.ItemClick
  * @author Ali (alirezaiyann@gmail.com)
  * @since 4/30/2020 3:27 PM.
  */
-class ExploreAdapter : RecyclerView.Adapter<ExploreViewHolder>() {
+class ExploreAdapter(private val listener: ItemClick<VenueUiModel>) :
+    RecyclerView.Adapter<ExploreViewHolder>() {
 
     private var items = mutableListOf<VenueUiModel>()
 
@@ -22,7 +23,9 @@ class ExploreAdapter : RecyclerView.Adapter<ExploreViewHolder>() {
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ExploreViewHolder, position: Int) {
-        holder.bind(items[position])
+        val item = items[position]
+        holder.bind(item)
+        holder.itemView.setOnClickListener { listener.click(item) }
     }
 
     fun update(it: List<VenueUiModel>) {

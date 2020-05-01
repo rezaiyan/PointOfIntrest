@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(project(AppModule.data))
     implementation(project(AppModule.coreSdk))
     implementation(project(AppModule.uiSdk))
     kapt(Deps.daggerAndroidProcessor)
