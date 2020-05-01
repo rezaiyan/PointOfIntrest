@@ -1,5 +1,6 @@
 package ir.alirezaiyan.main
 
+import android.util.SparseArray
 import ir.alirezaiyan.data.Repository
 import ir.alirezaiyan.data.mapper.Mapper
 import ir.alirezaiyan.data.model.VenueUiModel
@@ -16,7 +17,8 @@ class MainUseCase
 @Inject constructor(
     private val repository: Repository,
     private val mapper: Mapper<VenueResponse, VenueUiModel>
-) : UseCase<List<VenueUiModel>, String>() {
+) : UseCase<List<VenueUiModel>, SparseArray<String>>() {
 
-    override suspend fun run(params: String) = repository.getVenues(params).map { mapper.map(it) }
+    override suspend fun run(params: SparseArray<String>) =
+        repository.getVenues(params.valueAt(0), params.valueAt(1)).map { mapper.map(it) }
 }

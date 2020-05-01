@@ -17,7 +17,7 @@ class ExploreAdapter(private val listener: ItemClick<VenueUiModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ExploreViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_expore, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_explore, parent, false)
         )
 
     override fun getItemCount() = items.size
@@ -30,6 +30,11 @@ class ExploreAdapter(private val listener: ItemClick<VenueUiModel>) :
 
     fun update(it: List<VenueUiModel>) {
         items.addAll(it)
+        notifyDataSetChanged()
+    }
+
+    fun clear() {
+        items.clear()
         notifyDataSetChanged()
     }
 }

@@ -1,5 +1,6 @@
 package ir.alirezaiyan.main
 
+import android.util.SparseArray
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ir.alirezaiyan.data.model.VenueUiModel
@@ -15,12 +16,24 @@ class MainViewModel
 
     private val venueLiveData = MutableLiveData<List<VenueUiModel>>()
     private val stateLiveData = MutableLiveData<Boolean>()
+    private var location: String = ""
     fun venueLiveData() = venueLiveData
     fun stateLiveData() = stateLiveData
 
-    fun getVenues(offset: String = "0") {
+    fun getVenues() {
+        getVenues(location)
+    }
+
+    fun getVenues(location: String, offset: String = "0") {
+        this.location = location
         stateLiveData.value = true
-        userCase(offset) { it.either(::onFailure, ::onSuccess) }
+        if (location.isNotEmpty())
+            userCase(SparseArray<String>().also {
+                it.append(0, location);it.append(
+                1,
+                offset
+            )
+            }) { it.either(::onFailure, ::onSuccess) }
     }
 
     private fun onFailure(failure: Failure) {
@@ -31,5 +44,7 @@ class MainViewModel
         stateLiveData.value = false
         venueLiveData.value = response
     }
+
+    fun noResult() = venueLiveData.value.isNullOrEmpty() || !stateLiveData.value!!
 
 }

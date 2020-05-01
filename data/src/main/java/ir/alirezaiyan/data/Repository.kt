@@ -15,10 +15,10 @@ import javax.inject.Inject
  */
 class Repository @Inject constructor(private val api: ApiService) {
 
-    suspend fun getVenues(offset: String): Either<Failure, List<VenueResponse>> {
+    suspend fun getVenues(location: String, offset: String): Either<Failure, List<VenueResponse>> {
         try {
             val list =
-                api.explore("40.74224,-73.99386", offset).response.groups[0].items.map { it.venue }
+                api.explore(location, offset).response.groups[0].items.map { it.venue }
             return Either.Right(list)
         } catch (http: HttpException) {
             return Either.Left(Failure.ServerError)

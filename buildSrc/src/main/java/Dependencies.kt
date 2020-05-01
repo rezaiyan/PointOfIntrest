@@ -26,6 +26,7 @@ object Versions {
     const val retrofit = "2.8.1"
     const val constraintlayout = "1.1.3"
     const val picasso = "2.71828"
+    const val location = "17.0.0"
 }
 
 
@@ -77,6 +78,7 @@ object Deps {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    val serviceLocation = "com.google.android.gms:play-services-location:${Versions.location}"
 }
 
 object TestDeps

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_play_service_update_alert">Google play services should be updated</string>
+    <string name="gps_alert">GPS should be enabled</string>
+    <string name="waiting_alert">Please wait to retrieve your current location</string>
+    <string name="refresh">refresh</string>
+</resources>

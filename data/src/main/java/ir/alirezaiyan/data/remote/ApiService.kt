@@ -21,6 +21,7 @@ interface ApiService {
                 "&client_secret=$SECRET_KEY" +
                 "&section=food" +
                 "&venuePhotos=1" +
+                "&radius=100" +
                 "&limit=10"
     )
     suspend fun explore(

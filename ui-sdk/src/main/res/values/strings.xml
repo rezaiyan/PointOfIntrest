@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PointOfIntrests</string>
+    <string name="app_name">PointOfInterests</string>
+    <string name="permission_alert">To access application you must grant location permission</string>
 </resources>

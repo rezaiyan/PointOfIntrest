@@ -34,4 +34,5 @@ dependencies {
     api(Deps.kotlin)
     api(Deps.coroutines)
     api(Deps.coroutinesAndroid)
+    implementation(Deps.serviceLocation)
 }
