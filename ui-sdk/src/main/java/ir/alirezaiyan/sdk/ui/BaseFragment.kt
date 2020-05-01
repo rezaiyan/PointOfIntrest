@@ -26,9 +26,9 @@ open class BaseFragment : DaggerFragment() {
             hideProgress()
     }
 
-    protected fun showProgress() = progressStatus(View.VISIBLE)
+    private fun showProgress() = progressStatus(View.VISIBLE)
 
-    protected fun hideProgress() = progressStatus(View.GONE)
+    private fun hideProgress() = progressStatus(View.GONE)
 
     private fun progressStatus(viewStatus: Int) {
         (activity as BaseActivity).progressBar().visibility = viewStatus

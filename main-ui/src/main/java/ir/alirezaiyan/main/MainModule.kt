@@ -1,16 +1,14 @@
 package ir.alirezaiyan.main
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
-import ir.alirezaiyan.data.Mapper
+import ir.alirezaiyan.data.mapper.Mapper
 import ir.alirezaiyan.data.model.VenueUiModel
 import ir.alirezaiyan.data.model.VenuesUiModelMapper
 import ir.alirezaiyan.data.remote.response.VenueResponse
-import ir.alirezaiyan.sdk.ui.core.ViewModelFactory
 import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 
 /**
@@ -26,9 +24,6 @@ interface MainModule {
     abstract fun bindVenueUiModelMapper(
         mapper: VenuesUiModelMapper
     ): Mapper<VenueResponse, VenueUiModel>
-
-    @Binds
-    fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap

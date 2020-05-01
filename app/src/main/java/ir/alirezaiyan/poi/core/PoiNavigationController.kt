@@ -20,6 +20,7 @@ class PoiNavigationController @Inject constructor() : NavigationController {
         fragment: BaseFragment,
         bundle: Bundle
     ) {
+
         fragment.navigate(R.id.detail, bundle)
     }
 

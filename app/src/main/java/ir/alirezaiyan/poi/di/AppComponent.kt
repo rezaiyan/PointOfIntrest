@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        AndroidInjectionModule::class, AppModule::class, ActivityModule::class, DataModule::class]
+        AndroidInjectionModule::class, AppModule::class, ViewModelModule::class, ActivityModule::class, DataModule::class]
 )
 interface AppComponent {
     fun inject(app: PoiApp)

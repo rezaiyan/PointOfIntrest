@@ -4,6 +4,7 @@ import ir.alirezaiyan.data.remote.ApiService
 import ir.alirezaiyan.data.remote.response.VenueResponse
 import ir.alirezaiyan.sdk.core.utils.Either
 import ir.alirezaiyan.sdk.core.utils.Failure
+import ir.alirezaiyan.sdk.core.utils.None
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -26,4 +27,6 @@ class Repository @Inject constructor(private val api: ApiService) {
         }
 
     }
+
+    fun getVenue(params: String): Either<Failure, None> = Either.Right(None())
 }

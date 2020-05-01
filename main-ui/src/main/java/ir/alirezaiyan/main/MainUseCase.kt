@@ -1,7 +1,7 @@
 package ir.alirezaiyan.main
 
-import ir.alirezaiyan.data.Mapper
 import ir.alirezaiyan.data.Repository
+import ir.alirezaiyan.data.mapper.Mapper
 import ir.alirezaiyan.data.model.VenueUiModel
 import ir.alirezaiyan.data.remote.response.VenueResponse
 import ir.alirezaiyan.sdk.core.domain.UseCase

@@ -1,4 +1,4 @@
-package ir.alirezaiyan.data
+package ir.alirezaiyan.data.model
 
 data class VenueModel(
     val id: String, val name: String, val rating: Float, val photo: String,

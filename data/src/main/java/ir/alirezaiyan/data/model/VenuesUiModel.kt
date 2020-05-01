@@ -5,10 +5,11 @@ import android.os.Parcelable
 
 
 data class VenueUiModel(
-    val title: String, val photoUrl: String, val rating: Float,
+    val id: String, val title: String, val photoUrl: String, val rating: Float,
     val formattedAddress: String?, val formattedPhone: String?
 ) : Parcelable {
     constructor(source: Parcel) : this(
+        source.readString()!!,
         source.readString()!!,
         source.readString()!!,
         source.readFloat(),
@@ -19,6 +20,7 @@ data class VenueUiModel(
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+        writeString(id)
         writeString(title)
         writeString(photoUrl)
         writeFloat(rating)

@@ -1,4 +1,4 @@
-package ir.alirezaiyan.data
+package ir.alirezaiyan.data.mapper
 
 /**
  * @author Ali (alirezaiyann@gmail.com)

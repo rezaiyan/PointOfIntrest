@@ -1,14 +1,16 @@
 package ir.alirezaiyan.data.model
 
-import ir.alirezaiyan.data.Mapper
+import ir.alirezaiyan.data.mapper.Mapper
 import ir.alirezaiyan.data.remote.response.PhotoResponse
 import ir.alirezaiyan.data.remote.response.VenueResponse
 import javax.inject.Inject
 
-class VenuesUiModelMapper @Inject constructor() : Mapper<VenueResponse, VenueUiModel> {
+class VenuesUiModelMapper @Inject constructor() :
+    Mapper<VenueResponse, VenueUiModel> {
 
     override fun map(from: VenueResponse): VenueUiModel = with(from) {
         VenueUiModel(
+            id,
             name,
             if (photos.groups.isNotEmpty()) buildPhotoUrl(photos.groups[0].items[0]) else "",
             normalizeRating(rating),

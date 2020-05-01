@@ -28,13 +28,15 @@ android {
             )
         }
     }
-
+    dataBinding.isEnabled = true
 }
 
 dependencies {
-    implementation(project(AppModule.data))
-    implementation(project(AppModule.coreSdk))
+
+    api(project(AppModule.data))
     implementation(project(AppModule.uiSdk))
+    implementation(Deps.picasso)
     kapt(Deps.daggerAndroidProcessor)
     kapt(Deps.daggerCompiler)
+    implementation(project(AppModule.coreSdk))
 }
