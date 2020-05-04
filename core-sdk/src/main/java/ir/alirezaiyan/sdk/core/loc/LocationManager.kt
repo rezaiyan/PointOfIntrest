@@ -7,7 +7,8 @@ import com.google.android.gms.location.*
  * @author Ali (alirezaiyann@gmail.com)
  * @since 5/1/2020 10:11 PM.
  */
-private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 2000
+private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 1000 * 60 * 1; // 1 minute
+private const val MIN_DISTANCE_CHANGE_FOR_UPDATES: Float = 100F;
 const val LOCATION_PERMISSION_REQ = 113
 const val GOOGLE_PLAY_SERVICES_UPDATE_REQ = 65538
 const val ENABLE_GPS_REQ = 102
@@ -30,8 +31,7 @@ class LocationManager(
         mLocationRequest.interval = UPDATE_INTERVAL_IN_MILLISECONDS
         // we won't to have a accurate location because to save battery power use this flag
         mLocationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
-        //listening to the user location with 100 meter displacement
-        mLocationRequest.smallestDisplacement = 100f
+        mLocationRequest.smallestDisplacement = MIN_DISTANCE_CHANGE_FOR_UPDATES
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity)
 
         fusedLocationClient.lastLocation
