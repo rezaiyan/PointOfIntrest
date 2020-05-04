@@ -44,4 +44,7 @@ dependencies {
     implementation(Deps.roomRuntime)
     kapt(Deps.roomCompiler)
 
+    testImplementation(TestDeps.junit)
+    testImplementation(TestDeps.mockitoCore)
+
 }

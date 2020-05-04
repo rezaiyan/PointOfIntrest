@@ -28,6 +28,10 @@ object Versions {
     const val picasso = "2.71828"
     const val location = "17.0.0"
     const val room = "2.2.5"
+
+    const val junit = "4.12"
+    const val testExt = "1.1.1"
+    const val mockito = "3.0.0"
 }
 
 
@@ -84,4 +88,13 @@ object Deps {
     val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
 }
 
-object TestDeps
+object TestDeps {
+    const val junit = "junit:junit:${Versions.junit}"
+    const val testExt = "androidx.test.ext:junit:${Versions.testExt}"
+    const val runner = "androidx.test:runner:1.1.0"
+    const val rules = "androidx.test:rules:1.2.0"
+    const val coreTesting = "androidx.arch.core:core-testing:2.0.1"
+    const val core = "androidx.test:core:1.2.0"
+    const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockito}"
+    const val mockitoCore = "org.mockito:mockito-core:${Versions.mockito}"
+}
