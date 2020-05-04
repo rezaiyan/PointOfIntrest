@@ -1,6 +1,6 @@
 package ir.alirezaiyan.data.remote
 
-import ir.alirezaiyan.data.remote.response.FourSquareResponse
+import ir.alirezaiyan.data.remote.response.FoursquareResponse
 import ir.alirezaiyan.data.remote.response.VenuesResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -27,5 +27,5 @@ interface ApiService {
     suspend fun explore(
         @Query("ll") ll: String,
         @Query("offset") offset: String
-    ): FourSquareResponse<VenuesResponse>
+    ): FoursquareResponse<VenuesResponse>
 }

@@ -45,7 +45,7 @@ class RepositoryTest {
 
         val response = Response(groups)
 
-        val fourSquareResponse = FourSquareResponse(metadataResponse, response)
+        val fourSquareResponse = FoursquareResponse(metadataResponse, response)
 
 
         `when`(api.explore(ll, offset)).thenReturn(fourSquareResponse)

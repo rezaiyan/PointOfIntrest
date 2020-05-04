@@ -11,10 +11,10 @@ class VenueUiModelMapper @Inject constructor() :
         VenueUiModel(
             id,
             name,
-            if (photos?.groups?.isNotEmpty()!!) buildPhotoUrl(photos.groups[0].items[0]) else "",
+            if (photos.groups.isNotEmpty()) buildPhotoUrl(photos.groups[0].items[0]) else "",
             normalizeRating(rating),
-            location?.formattedAddress?.joinToString(","),
-            contact?.formattedPhone
+            location.formattedAddress.joinToString(","),
+            contact.formattedPhone
         )
     }
 
