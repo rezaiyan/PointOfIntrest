@@ -5,10 +5,7 @@ import ir.alirezaiyan.data.mapper.Mapper
 import ir.alirezaiyan.data.model.VenueEntity
 import ir.alirezaiyan.data.remote.ApiService
 import ir.alirezaiyan.data.remote.response.VenueResponse
-import ir.alirezaiyan.data.utils.getLatitude
-import ir.alirezaiyan.data.utils.getLongitude
-import ir.alirezaiyan.data.utils.toX
-import ir.alirezaiyan.data.utils.toY
+import ir.alirezaiyan.data.utils.*
 import ir.alirezaiyan.sdk.core.utils.Either
 import ir.alirezaiyan.sdk.core.utils.Failure
 import retrofit2.HttpException
@@ -26,18 +23,13 @@ class Repository @Inject constructor(
     private val mapper: Mapper<VenueResponse, VenueEntity>
 ) {
 
-    private val radios = 100
     suspend fun getVenues(location: String, offset: String): Either<Failure, List<VenueEntity>> {
 
         val x = location.getLongitude().toX()
         val y = location.getLatitude().toY()
+        val range = Pair(x, y).getRange()
 
-        val xFrom = x - radios
-        val xTo = x + radios
-        val yFrom = y - radios
-        val yTo = y + radios
-
-        val venues = db.getNearVenues(xFrom, xTo, yFrom, yTo)
+        val venues = db.getNearVenues(range.xFrom, range.xTo, range.yFrom, range.yTo)
         return if (venues.isNotEmpty()) {
             val isExpired: Boolean =
                 System.currentTimeMillis() - venues[0].created_at > DAYS.toMillis(2)
