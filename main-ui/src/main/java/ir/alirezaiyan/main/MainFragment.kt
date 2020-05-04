@@ -65,13 +65,6 @@ class MainFragment : BaseFragment(), LocationUpdate {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (exploreAdapter.itemCount == 0) {
-            loadVenues()
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -81,11 +74,8 @@ class MainFragment : BaseFragment(), LocationUpdate {
         }
         vm.venueLiveData().observe(viewLifecycleOwner,
             Observer {
-                if (needUpdateList) {
                     exploreAdapter.update(it)
                     emptyView.visibleOrGone = exploreAdapter.itemCount == 0
-                }
-                needUpdateList = true
             })
 
         vm.stateLiveData().observe(viewLifecycleOwner,
@@ -108,16 +98,6 @@ class MainFragment : BaseFragment(), LocationUpdate {
             })
     }
 
-    private fun loadVenues() {
-        if (exploreAdapter.itemCount == 0) {
-            if (::location.isInitialized) {
-                vm.getVenues(location.get())
-            } else {
-                showMessage(getString(R.string.waiting_alert))
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         needUpdateList = false
@@ -135,8 +115,9 @@ class MainFragment : BaseFragment(), LocationUpdate {
 
     override fun updateLocation(loc: Location) {
         location = loc
-        exploreAdapter.clear()
-        vm.getVenues(location.get())
+        if (needUpdateList)
+            vm.getVenues(location.get())
+        needUpdateList = true
     }
 
     private fun checkPermission() {

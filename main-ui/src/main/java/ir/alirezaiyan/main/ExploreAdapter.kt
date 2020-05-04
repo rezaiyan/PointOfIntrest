@@ -60,8 +60,4 @@ class ExploreAdapter(private val listener: ItemClick<VenueUiModel>) :
         notifyDataSetChanged()
     }
 
-    fun clear() {
-        items.clear()
-        notifyDataSetChanged()
-    }
 }

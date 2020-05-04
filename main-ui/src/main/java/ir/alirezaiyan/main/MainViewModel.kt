@@ -21,10 +21,13 @@ class MainViewModel
     fun stateLiveData() = stateLiveData
 
     fun getVenues() {
-        getVenues(location)
+        getVenues(location, forceUpdate = true)
     }
 
-    fun getVenues(location: String, offset: String = "0") {
+    fun getVenues(location: String, offset: String = "0", forceUpdate: Boolean = false) {
+        if (this.location == location && !forceUpdate)
+            return
+
         this.location = location
         stateLiveData.value = true
         if (location.isNotEmpty())
