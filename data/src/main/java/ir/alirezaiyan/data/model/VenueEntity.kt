@@ -59,4 +59,20 @@ class VenueEntity {
         this.location = location
         this.stats = stats ?: Stats(-1)
     }
+
+    override fun equals(other: Any?): Boolean {
+        return if (other !is VenueEntity) {
+            false
+        } else {
+            val range: VenueEntity = other
+            range.id == id
+        }
+    }
+
+    override fun hashCode(): Int {
+        var hash = 7
+        hash = (31 * hash + id.hashCode())
+        hash = (31 * hash + id.hashCode())
+        return hash
+    }
 }

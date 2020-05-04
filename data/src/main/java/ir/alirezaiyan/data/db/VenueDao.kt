@@ -2,6 +2,7 @@ package ir.alirezaiyan.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import ir.alirezaiyan.data.model.VenueEntity
 
@@ -23,7 +24,7 @@ interface VenueDao {
     @Query("SELECT * FROM venue")
     fun getAll(): List<VenueEntity>
 
-    @Insert()
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertVenue(venue: VenueEntity)
 
     @Query("SELECT * FROM venue WHERE id = :id")
