@@ -13,7 +13,6 @@ abstract class EndlessOnScrollListener : RecyclerView.OnScrollListener() {
 
     private var mPreviousTotal = 0
     private var mLoading = true
-    private var reachEnd = false
     private val visibleThreshold = 1
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -31,19 +30,16 @@ abstract class EndlessOnScrollListener : RecyclerView.OnScrollListener() {
             }
         }
 
-        if (!reachEnd && !mLoading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+        if (totalItemCount > visibleItemCount && !mLoading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
             onLoadMore()
             mLoading = true
         }
     }
 
     abstract fun onLoadMore()
+
     fun onFailure() {
         mLoading = false
     }
 
-    fun onReachEnd() {
-        reachEnd = true
-        mLoading = false
-    }
 }
