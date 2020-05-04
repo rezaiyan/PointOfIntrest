@@ -21,12 +21,22 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file((project.property("ANDROID_KEYSTORE_DIR") as String?)!!)
+            storePassword = project.property("ANDROID_KEYSTORE_PASSWORD") as String?
+            keyAlias = project.property("ANDROID_KEYSTORE_ALIAS") as String?
+            keyPassword = project.property("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD") as String?
+        }
+    }
+
     buildTypes {
         getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
