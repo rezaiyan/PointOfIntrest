@@ -1,22 +1,27 @@
 package ir.alirezaiyan.data.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import ir.alirezaiyan.data.BuildConfig
+import ir.alirezaiyan.data.db.PoiDatabase
 import ir.alirezaiyan.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 /**
  * @author Ali (alirezaiyann@gmail.com)
  * @since 4/30/2020 5:00 PM.
  */
-@Module
-class DataModule {
+@Module(includes = [MapperModule::class])
+class DataModule(private val context: Context) {
 
     @Provides
+    @Singleton
     fun provideService(): ApiService {
         return Retrofit.Builder()
             .baseUrl("https://api.foursquare.com")
@@ -34,4 +39,10 @@ class DataModule {
         }
         return okHttpClientBuilder.build()
     }
+
+    @Provides
+    @Singleton
+    fun provideDatabase() =
+        Room.databaseBuilder(context.applicationContext, PoiDatabase::class.java, "poi")
+            .build().venueDao()
 }

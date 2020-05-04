@@ -41,5 +41,7 @@ dependencies {
     implementation(Deps.okhttpInterceptor)
     implementation(Deps.gson)
     api(project(AppModule.coreSdk))
+    implementation(Deps.roomRuntime)
+    kapt(Deps.roomCompiler)
 
 }

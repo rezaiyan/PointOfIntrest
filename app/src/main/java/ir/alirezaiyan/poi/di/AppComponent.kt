@@ -17,4 +17,5 @@ import javax.inject.Singleton
 )
 interface AppComponent {
     fun inject(app: PoiApp)
+    fun dataModule(dataModule: DataModule)
 }

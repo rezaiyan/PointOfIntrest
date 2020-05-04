@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.support.HasSupportFragmentInjector
+import ir.alirezaiyan.data.di.DataModule
 import ir.alirezaiyan.poi.di.DaggerAppComponent
 import javax.inject.Inject
 
@@ -24,6 +25,6 @@ class PoiApp : Application(), HasActivityInjector, HasSupportFragmentInjector {
     override fun supportFragmentInjector() = dispatchingFragmentInjector
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.create().inject(this)
+        DaggerAppComponent.builder().dataModule(DataModule(this)).build().inject(this)
     }
 }

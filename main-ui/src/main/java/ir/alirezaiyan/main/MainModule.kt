@@ -5,10 +5,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
-import ir.alirezaiyan.data.mapper.Mapper
-import ir.alirezaiyan.data.model.VenueUiModel
-import ir.alirezaiyan.data.model.VenuesUiModelMapper
-import ir.alirezaiyan.data.remote.response.VenueResponse
 import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 
 /**
@@ -19,11 +15,6 @@ import ir.alirezaiyan.sdk.ui.core.ViewModelKey
 interface MainModule {
     @ContributesAndroidInjector
     fun mainFragment(): MainFragment
-
-    @Binds
-    abstract fun bindVenueUiModelMapper(
-        mapper: VenuesUiModelMapper
-    ): Mapper<VenueResponse, VenueUiModel>
 
     @Binds
     @IntoMap

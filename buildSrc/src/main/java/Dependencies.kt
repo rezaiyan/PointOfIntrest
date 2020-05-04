@@ -27,6 +27,7 @@ object Versions {
     const val constraintlayout = "1.1.3"
     const val picasso = "2.71828"
     const val location = "17.0.0"
+    const val room = "2.2.5"
 }
 
 
@@ -79,6 +80,8 @@ object Deps {
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
     val serviceLocation = "com.google.android.gms:play-services-location:${Versions.location}"
+    val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
 }
 
 object TestDeps
