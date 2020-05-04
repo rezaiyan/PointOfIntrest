@@ -38,6 +38,7 @@ class MainFragment : BaseFragment(), LocationUpdate {
 
     @Inject
     lateinit var vm: MainViewModel
+
     @Inject
     lateinit var navigator: NavigationController
     private lateinit var location: Location
@@ -141,17 +142,16 @@ class MainFragment : BaseFragment(), LocationUpdate {
     private fun checkPermission() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-            PermissionChecker.checkSelfPermission(
+            ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PermissionChecker.PERMISSION_GRANTED &&
-            PermissionChecker.checkSelfPermission(
+            ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PermissionChecker.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
+            requestPermissions(
                 arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
