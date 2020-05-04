@@ -1,6 +1,7 @@
 package ir.alirezaiyan.poi.core
 
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.snackbar.Snackbar
 import ir.alirezaiyan.poi.R
 import ir.alirezaiyan.sdk.ui.BaseFragment
@@ -24,7 +25,7 @@ class PoiNavigationController @Inject constructor() : NavigationController {
         fragment.navigate(R.id.detail, bundle)
     }
 
-    override fun showError(activity: androidx.fragment.app.FragmentActivity, error: String?) {
+    override fun showError(activity: FragmentActivity, error: String?) {
         Snackbar.make(
             activity.findViewById(android.R.id.content), error
                 ?: "Error", Snackbar.LENGTH_LONG

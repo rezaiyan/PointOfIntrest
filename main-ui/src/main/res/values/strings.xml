@@ -3,5 +3,6 @@
     <string name="google_play_service_update_alert">Google play services should be updated</string>
     <string name="gps_alert">GPS should be enabled</string>
     <string name="waiting_alert">Please wait to retrieve your current location</string>
-    <string name="refresh">refresh</string>
+    <string name="refresh">REFRESH</string>
+    <string name="no_result_alert">Here is no venue</string>
 </resources>

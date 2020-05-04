@@ -18,19 +18,34 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/exploreList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             tools:listitem="@layout/item_explore"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="20" />
 
-        <Button
-            android:id="@+id/refreshButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:onClick="@{() -> viewModel.getVenues()}"
-            android:text="@string/refresh" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_result_alert" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standardMargin"
+                android:onClick="@{() -> viewModel.getVenues()}"
+                android:text="@string/refresh" />
+        </LinearLayout>
+
 
     </FrameLayout>
 

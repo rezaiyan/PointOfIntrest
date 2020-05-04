@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/standardMargin"
-    app:cardPreventCornerOverlap="true">
+    android:layout_margin="@dimen/standardMargin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="ContentDescription"
-            tools:src="@tools:sample/avatars" />
+            app:srcCompat="@drawable/ic_restaurant" />
 
 
         <TextView
@@ -34,7 +33,7 @@
             android:layout_margin="@dimen/standardMargin"
             android:layout_marginEnd="@dimen/standardMargin"
             android:drawablePadding="@dimen/iconPadding"
-            android:gravity="start"
+            android:gravity="left"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:textColor="@android:color/white"
@@ -69,7 +68,7 @@
             android:layout_margin="@dimen/standardMargin"
             android:layout_marginStart="@dimen/standardMargin"
             android:layout_marginBottom="@dimen/standardMargin"
-            android:alpha="0.8"
+            android:gravity="left"
             android:drawableStart="@drawable/ic_location"
             android:drawablePadding="@dimen/iconPadding"
             android:maxLines="2"

@@ -19,6 +19,7 @@ import ir.alirezaiyan.main.utils.EndlessOnScrollListener
 import ir.alirezaiyan.main.utils.ItemClick
 import ir.alirezaiyan.main.utils.visibleOrGone
 import ir.alirezaiyan.sdk.core.loc.*
+import ir.alirezaiyan.sdk.core.utils.Failure
 import ir.alirezaiyan.sdk.core.utils.get
 import ir.alirezaiyan.sdk.ui.BaseFragment
 import ir.alirezaiyan.sdk.ui.core.NavigationController
@@ -35,20 +36,17 @@ class MainFragment : BaseFragment(), LocationUpdate {
         LocationManager(requireActivity(), this)
     }
 
-    private lateinit var location: Location
-
     @Inject
     lateinit var vm: MainViewModel
-
     @Inject
     lateinit var navigator: NavigationController
-
+    private lateinit var location: Location
     private lateinit var binding: MainFragmentBinding
+    private var needUpdateList = true
 
     private val exploreAdapter = ExploreAdapter(object : ItemClick<VenueUiModel> {
         override fun click(item: VenueUiModel) {
-            val bundle = bundleOf("venue" to item)
-            navigator.navigateToDetail(this@MainFragment, bundle)
+            navigator.navigateToDetail(this@MainFragment, bundleOf("venueID" to item.id))
         }
     })
 
@@ -66,6 +64,13 @@ class MainFragment : BaseFragment(), LocationUpdate {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (exploreAdapter.itemCount == 0) {
+            loadVenues()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -73,18 +78,32 @@ class MainFragment : BaseFragment(), LocationUpdate {
             addOnScrollListener(endlessScroll)
             adapter = exploreAdapter
         }
-
-        loadVenues()
-
         vm.venueLiveData().observe(viewLifecycleOwner,
             Observer {
-                exploreAdapter.update(it)
+                if (needUpdateList) {
+                    exploreAdapter.update(it)
+                    emptyView.visibleOrGone = exploreAdapter.itemCount == 0
+                }
+                needUpdateList = true
             })
 
         vm.stateLiveData().observe(viewLifecycleOwner,
             Observer {
                 updateProgress(it)
-                refreshButton.visibleOrGone = !it && exploreAdapter.itemCount == 0
+                emptyView.visibleOrGone = !it && exploreAdapter.itemCount == 0
+            })
+
+        vm.failureLiveData().observe(
+            viewLifecycleOwner,
+            Observer {
+                val errorMessage: String = when (it) {
+                    is Failure.NetworkConnection -> getString(R.string.network_connection_alert)
+                    is Failure.ServerError -> getString(R.string.server_error_alert)
+                    else -> getString(R.string.unknown_error)
+                }
+                navigator.showError(requireActivity(), errorMessage)
+                endlessScroll.onFailure()
+                needUpdateList = true
             })
     }
 
@@ -98,10 +117,14 @@ class MainFragment : BaseFragment(), LocationUpdate {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        needUpdateList = false
+    }
+
     override fun onStart() {
         super.onStart()
         checkPermission()
-
     }
 
     override fun onStop() {

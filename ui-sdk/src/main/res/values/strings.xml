@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">PointOfInterests</string>
+    <string name="app_name">Point of interests</string>
     <string name="permission_alert">To access application you must grant location permission</string>
+    <string name="network_connection_alert">Please check your internet connection</string>
+    <string name="server_error_alert">The server encountered an error processing the request</string>
+    <string name="unknown_error">Oops! Something went wrong!</string>
 </resources>
